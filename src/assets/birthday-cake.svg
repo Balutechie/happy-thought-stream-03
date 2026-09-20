@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-labelledby="title">
+  <title id="title">Pink birthday cake with glowing candles</title>
+  <rect width="480" height="320" rx="24" fill="#fff1f8"/>
+  <g fill="#f7b9d6" opacity=".55"><circle cx="55" cy="62" r="6"/><circle cx="420" cy="80" r="8"/><circle cx="75" cy="250" r="8"/><circle cx="405" cy="245" r="6"/></g>
+  <ellipse cx="240" cy="275" rx="145" ry="18" fill="#d98bb2" opacity=".25"/>
+  <path d="M130 164h220v98H130z" fill="#ef78ae" stroke="#5d3048" stroke-width="6"/>
+  <path d="M130 164c22-29 45 28 70 0 25-28 48 27 76 0 27-27 48 27 74 0v42H130z" fill="#ffd5e8" stroke="#5d3048" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M163 262h154" stroke="#5d3048" stroke-width="6" stroke-linecap="round"/>
+  <g stroke="#5d3048" stroke-width="5"><path d="M180 151v-46"/><path d="M240 151V95"/><path d="M300 151v-46"/></g>
+  <g fill="#ffd75e" stroke="#b86d36" stroke-width="3"><path d="M180 104c-17-15 0-31 0-31s17 16 0 31z"/><path d="M240 94c-17-15 0-31 0-31s17 16 0 31z"/><path d="M300 104c-17-15 0-31 0-31s17 16 0 31z"/></g>
+  <g fill="#fff"><circle cx="190" cy="224" r="6"/><circle cx="240" cy="237" r="6"/><circle cx="289" cy="219" r="6"/></g>
+</svg>

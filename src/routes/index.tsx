@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight, Heart, PartyPopper, RotateCcw } from "lucide-react";
 
-import cakeAsset from "@/assets/birthday-cake.gif.asset.json";
-import danceAsset from "@/assets/birthday-dance.gif.asset.json";
-import giftAsset from "@/assets/birthday-gift.gif.asset.json";
+import cakeImage from "@/assets/birthday-cake.svg";
+import danceImage from "@/assets/birthday-dance.svg";
+import giftImage from "@/assets/birthday-gift.svg";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -29,19 +29,19 @@ export const Route = createFileRoute("/")({
 
 const memories = [
   {
-    image: cakeAsset.url,
+    image: cakeImage,
     alt: "A pink pixel birthday cake with glowing candles",
     file: "memory_01.gif",
     caption: "You make every moment brighter",
   },
   {
-    image: danceAsset.url,
+    image: danceImage,
     alt: "Hello Kitty dancing with colorful music notes",
     file: "memory_02.gif",
     caption: "You bring joy wherever you go",
   },
   {
-    image: giftAsset.url,
+    image: giftImage,
     alt: "A sweet cat holding a pink birthday present",
     file: "memory_03.gif",
     caption: "You deserve all the happiness",
@@ -149,7 +149,7 @@ function Index() {
           <p className="eyebrow">✦ HAPPY BIRTHDAY ✦</p>
           <WindowFrame title="BDAY_LETTER.TXT" footer="SENT W/ LOVE" className="letter-window">
             <div className="letter-heading">
-              <div className="letter-stamp"><img src={giftAsset.url} alt="" /></div>
+              <div className="letter-stamp"><img src={giftImage} alt="" /></div>
               <span>SPECIAL DELIVERY</span>
               <h1 className="script">Dear Birthday Star,</h1>
             </div>

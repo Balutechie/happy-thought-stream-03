@@ -78,6 +78,7 @@ function WindowFrame({
 function Index() {
   const [step, setStep] = useState(0);
   const [noCount, setNoCount] = useState(0);
+  const currentMemory = step >= 1 && step <= 3 ? memories[step - 1] : undefined;
 
   const restart = () => {
     setStep(0);
@@ -121,19 +122,19 @@ function Index() {
         </div>
       )}
 
-      {step >= 1 && step <= 3 && (
+      {currentMemory && (
         <div className="scene scene-memory" key={`memory-${step}`}>
           <p className="eyebrow">✦ OUR MEMORIES ✦</p>
           <h1>Memory {step} of 3</h1>
           <div className="progress-dots" aria-label={`Memory ${step} of 3`}>
             {memories.map((_, index) => <span key={index} className={index < step ? "active" : ""} />)}
           </div>
-          <WindowFrame title={memories[step - 1].file} footer={step === 3 ? "SWEETEST SURPRISE" : "PRECIOUS MOMENT"}>
+          <WindowFrame title={currentMemory.file} footer={step === 3 ? "SWEETEST SURPRISE" : "PRECIOUS MOMENT"}>
             <figure className="memory-figure">
               <div className="memory-image-wrap">
-                <img src={memories[step - 1].image} alt={memories[step - 1].alt} />
+                <img src={currentMemory.image} alt={currentMemory.alt} />
               </div>
-              <figcaption>“{memories[step - 1].caption}”</figcaption>
+              <figcaption>“{currentMemory.caption}”</figcaption>
             </figure>
           </WindowFrame>
           <Button className="birthday-button next-button" onClick={() => setStep(step + 1)}>

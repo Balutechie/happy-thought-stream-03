@@ -169,11 +169,17 @@
 
 .birthday-shell {
   min-height: 100svh;
-  overflow: hidden;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
   display: grid;
   place-items: center;
-  padding: 2.25rem 1rem 3.5rem;
+  padding:
+    max(1.5rem, env(safe-area-inset-top))
+    max(0.85rem, env(safe-area-inset-right))
+    max(3.25rem, env(safe-area-inset-bottom))
+    max(0.85rem, env(safe-area-inset-left));
   background:
     linear-gradient(var(--soft-pink) 1px, transparent 1px),
     linear-gradient(90deg, var(--soft-pink) 1px, transparent 1px),
@@ -183,6 +189,7 @@
 
 .scene {
   width: min(100%, 31rem);
+  min-width: 0;
   position: relative;
   z-index: 2;
   animation: scene-in 0.55s ease-out both;
@@ -194,7 +201,8 @@
   font-size: 0.67rem;
   font-weight: 500;
   letter-spacing: 0.15em;
-  margin: 0 0 1.25rem;
+  margin: 0 0 clamp(0.8rem, 2.5vh, 1.25rem);
+  overflow-wrap: anywhere;
 }
 
 .retro-window {
@@ -208,7 +216,7 @@
 .window-bar {
   min-height: 2rem;
   display: grid;
-  grid-template-columns: 4rem 1fr 4rem;
+  grid-template-columns: minmax(3.25rem, 1fr) minmax(0, 2fr) minmax(3.25rem, 1fr);
   align-items: center;
   padding: 0 0.55rem;
   border-bottom: 2px solid var(--border);
@@ -219,24 +227,31 @@
   letter-spacing: 0.08em;
 }
 
+.window-bar > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .window-dots { display: flex; gap: 0.28rem; }
 .window-dots span { width: 0.48rem; height: 0.48rem; border: 1px solid var(--border); border-radius: 50%; }
 .window-dots span:nth-child(1) { background: var(--accent); }
 .window-dots span:nth-child(2) { background: var(--secondary); }
 .window-dots span:nth-child(3) { background: var(--paper); }
-.window-body { min-height: 22rem; padding: 1.25rem; }
+.window-body { min-height: clamp(18rem, 52vh, 22rem); padding: clamp(0.9rem, 4vw, 1.25rem); }
 .window-footer {
   display: flex; justify-content: space-between; align-items: center;
   border-top: 1px solid var(--border); padding: 0.52rem 0.7rem;
   color: var(--primary); font-size: 0.52rem; letter-spacing: 0.12em;
 }
 .script { font-family: var(--font-script); }
-.intro-content { min-height: 19.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.intro-content { min-height: clamp(16rem, 46vh, 19.5rem); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .mini-heart { color: var(--primary); font-size: 3rem; line-height: 1; animation: float 2.4s ease-in-out infinite; }
 .intro-question { max-width: 20rem; margin: 1.4rem 0; color: var(--primary); font-size: clamp(1.4rem, 6vw, 1.9rem); line-height: 1.45; font-weight: 700; }
 .tease { min-height: 1rem; margin: -0.45rem 0 1rem; color: var(--muted-foreground); font-size: 0.65rem; }
-.intro-actions { min-height: 3rem; display: flex; justify-content: center; align-items: center; gap: 0.8rem; }
-.birthday-button { min-height: 2.75rem; padding-inline: 1.3rem; text-transform: uppercase; letter-spacing: 0.08em; box-shadow: 3px 3px 0 var(--border); }
+.intro-actions { width: 100%; min-height: 3rem; display: flex; justify-content: center; align-items: center; gap: 0.8rem; }
+.birthday-button { min-height: 2.75rem; max-width: 100%; padding-inline: 1.3rem; text-transform: uppercase; letter-spacing: 0.08em; box-shadow: 3px 3px 0 var(--border); white-space: normal; }
 .birthday-button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--border); }
 .no-button { transition: all 0.25s ease; }
 .no-1 { transform: scale(0.9); }
@@ -247,7 +262,7 @@
 .progress-dots span { width: 1.6rem; height: 0.2rem; border-radius: 1rem; background: var(--secondary); }
 .progress-dots .active { background: var(--primary); }
 .memory-figure { margin: 0; }
-.memory-image-wrap { height: min(54vw, 17rem); min-height: 13rem; display: grid; place-items: center; overflow: hidden; border: 2px solid var(--border); border-radius: var(--radius-sm); background: var(--paper); }
+.memory-image-wrap { height: clamp(11.5rem, 48vh, 17rem); display: grid; place-items: center; overflow: hidden; border: 2px solid var(--border); border-radius: var(--radius-sm); background: var(--paper); }
 .memory-image-wrap img { width: 86%; height: 86%; object-fit: contain; image-rendering: auto; }
 .memory-figure figcaption { padding: 1.1rem 0 0.15rem; color: var(--muted-foreground); font-family: var(--font-script); font-size: 1rem; text-align: center; }
 .next-button { display: flex; margin: 1.7rem auto 0.8rem; }
@@ -277,10 +292,45 @@
 .corner-note { position: absolute; right: 1rem; bottom: 0.8rem; display: flex; align-items: center; gap: 0.35rem; color: var(--muted-foreground); font-size: 0.52rem; }
 .corner-note svg { width: 0.75rem; }
 
+@media (max-width: 359px) {
+  .birthday-shell { padding-inline: max(0.65rem, env(safe-area-inset-left)); }
+  .window-bar { grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem; font-size: 0.52rem; }
+  .window-body { padding: 0.8rem; }
+  .intro-question { font-size: 1.3rem; }
+  .intro-actions { flex-direction: column; gap: 0.6rem; }
+  .intro-actions > * { width: min(100%, 12rem); }
+  .memory-image-wrap { height: 10.75rem; }
+  .letter-paper { margin-inline: 0.75rem; padding: 1rem; font-size: 0.7rem; }
+  .letter-heading { padding-inline: 0.85rem; }
+  .letter-signoff { padding-inline: 1rem; }
+  .sparkles span:nth-child(5), .sparkles span:nth-child(6) { display: none; }
+}
+
+@media (max-height: 700px) {
+  .birthday-shell { place-items: start center; padding-top: max(1rem, env(safe-area-inset-top)); }
+  .eyebrow { margin-bottom: 0.65rem; }
+  .window-body { min-height: 15.5rem; }
+  .intro-content { min-height: 14rem; }
+  .mini-heart { font-size: 2.3rem; }
+  .intro-question { margin-block: 0.8rem; }
+  .memory-image-wrap { height: min(43vh, 14rem); min-height: 9.5rem; }
+  .next-button { margin-top: 1rem; }
+  .corner-note { display: none; }
+}
+
 @media (min-width: 700px) {
-  .birthday-shell { padding-block: 3.5rem; }
+  .birthday-shell { padding: max(3.5rem, env(safe-area-inset-top)) 2rem max(3.5rem, env(safe-area-inset-bottom)); }
+  .scene { width: min(82vw, 34rem); }
   .window-body { padding: 1.6rem; }
   .retro-window { box-shadow: 11px 11px 0 var(--shadow-pink); }
+  .memory-image-wrap { height: min(42vh, 18rem); }
+  .letter-paper { font-size: 0.79rem; }
+}
+
+@media (min-width: 1100px) {
+  .scene { width: min(72vw, 36rem); }
+  .birthday-shell { background-size: 40px 40px, 40px 40px, auto; }
+  .window-body { padding: 1.8rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

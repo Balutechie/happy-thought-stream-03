@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-labelledby="title">
+  <title id="title">Sweet cat holding a pink birthday present</title>
+  <rect width="480" height="320" rx="24" fill="#fff1f8"/>
+  <g fill="#f4a9cb"><path d="M65 72l6 15 15 6-15 6-6 15-6-15-15-6 15-6z"/><path d="M407 195l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/></g>
+  <path d="M148 127l18-66 51 36h46l51-36 18 66c28 18 45 52 39 88-8 52-57 85-131 85s-123-33-131-85c-6-36 11-70 39-88z" fill="#fff" stroke="#5d3048" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="205" cy="158" r="7" fill="#5d3048"/><circle cx="275" cy="158" r="7" fill="#5d3048"/><path d="M229 177q11 12 22 0" fill="none" stroke="#5d3048" stroke-width="5" stroke-linecap="round"/>
+  <path d="M128 206q42-32 79 7M352 206q-42-32-79 7" fill="none" stroke="#5d3048" stroke-width="10" stroke-linecap="round"/>
+  <rect x="171" y="199" width="138" height="96" rx="5" fill="#ef78ae" stroke="#5d3048" stroke-width="7"/>
+  <path d="M240 200v95M166 225h148" stroke="#ffd5e8" stroke-width="13"/>
+  <path d="M240 199c-54-25-49-69-18-56 18 7 18 35 18 56zm0 0c54-25 49-69 18-56-18 7-18 35-18 56z" fill="#ffd5e8" stroke="#5d3048" stroke-width="6"/>
+</svg>
